@@ -3,6 +3,7 @@ app.cmp.Results = {
     var ctrl = {
       loading: m.prop(true),
       posts: m.prop([]),
+      query: m.route.param('query'),
       backToSearch: function() {
         m.route('/search');
       }
@@ -10,7 +11,17 @@ app.cmp.Results = {
     app.model.Reddit[args.type](m.route.param('query'))
       .then(ctrl.posts)
       .then(ctrl.loading.bind(null, false))
-      .then(m.redraw);
+      .then(m.redraw, function() {
+        // error case
+        ctrl.loading(false);
+        Velocity(util.q('.error'), {
+          opacity: 1,
+          fontSize: ['125%', '50%']
+        }, {
+          display: 'block'
+        });
+        m.redraw();
+      });
     return ctrl;
   },
   view: function(ctrl, args) {
@@ -36,6 +47,12 @@ app.cmp.Results = {
         src: app.IMAGES.loading,
         hidden: !ctrl.loading()
       }),
+      m('div.error', [
+        m('p', 'Unable to find "' + ctrl.query + '"'),
+        m('button.error-button.pure-button', {
+          onclick: ctrl.backToSearch
+        }, 'Back to Search?')
+      ])
     ]);
   }
 };

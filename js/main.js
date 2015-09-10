@@ -21,7 +21,7 @@
     var layout = function(title, content, cArgs) {
         return {
             controller: function(args) {
-                document.title = (title ? 'RS' : 'Reddit Search') + ' - ' + title;
+                document.title = (title ? 'RS - ' + title : 'Reddit Search');
             },
             view: function(ctrl, args) {
                 return m('div.container', {

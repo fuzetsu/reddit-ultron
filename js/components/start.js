@@ -5,7 +5,21 @@ app.cmp.Start = {
       search: function(e) {
         e.preventDefault();
         if(!ctrl.query()) return;
-        m.route('/search/' + ctrl.query());
+        m.route('/r/' + ctrl.query());
+      },
+      handleInput: function(e) {
+        var t = e.target;
+        ctrl.query(t.value);
+        if(t.value.length === 1) {
+          Velocity(util.q('.go'), {
+            opacity: 1,
+            fontSize: ['190%', '50%']
+          }, {
+            display: 'block'
+          });
+        } else if(t.value.length === 0) {
+          Velocity(util.q('.go'), 'reverse');
+        }
       }
     };
     return ctrl;
@@ -18,19 +32,7 @@ app.cmp.Start = {
       }, [
         m('input.search-box[placeholder=Subreddit or Search]', {
           config: mutil.c.autofocus,
-          oninput: function(e) {
-            var t = e.target;
-            ctrl.query(t.value);
-            if(t.value.length === 1) {
-              Velocity(util.q('.go'), {
-                opacity: 1
-              }, {
-                display: 'block'
-              });
-            } else if(t.value.length === 0) {
-              Velocity(util.q('.go'), 'reverse');
-            }
-          }
+          oninput: ctrl.handleInput
         }),
         m('button[type=submit].go.pure-button', 'Go')
       ])

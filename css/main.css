@@ -45,10 +45,13 @@ input {
   background: orange;
 }
 
+.results {
+  margin-top: 50px;
+}
+
 .results .loading {
   display: block;
   margin: auto;
-  margin-top: 15px;
 }
 
 .results .post {
@@ -69,4 +72,14 @@ input {
   top: 10px;
   left: 10px;
   cursor: pointer;
+}
+
+.results .error {
+  display: none;
+  text-align: center;
+  margin-top: 30vh;
+}
+
+.error-button {
+  background: orange;
 }
