@@ -1,4 +1,4 @@
-app.cmp.search = {
+app.cmp.Start = {
   controller: function(args) {
     var ctrl = {
       query: m.prop(''),

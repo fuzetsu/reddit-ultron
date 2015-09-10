@@ -44,3 +44,29 @@ input {
   font-size: 190%;
   background: orange;
 }
+
+.results .loading {
+  display: block;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.results .post {
+  margin: auto;
+  width: 1000px;
+  max-width: 98%;
+  margin-top: 20px;
+}
+
+.results .post img {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+.back-to-search {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+}
