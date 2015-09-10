@@ -1,0 +1,46 @@
+body {
+  background-color: #333;
+  color: white;
+/*   overflow: hidden; */
+}
+
+input {
+  color: black;
+}
+
+.container {
+/*   position: absolute;
+  left: 5000px;
+  width: 100%; */
+  display: none;
+}
+
+.search {
+  margin-top: 20vh;
+}
+
+.search h1 {
+  font-size: 5em;
+  text-align: center;
+}
+
+.search form {
+  width: 100%;
+}
+
+.search form > .search-box {
+  font-size: 200%;
+  max-width: 800px;
+  width: 90%;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.search .go {
+  display: none;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 190%;
+  background: orange;
+}
