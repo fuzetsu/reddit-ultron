@@ -22,10 +22,29 @@ input {
 .search h1 {
   font-size: 5em;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .search form {
   width: 100%;
+}
+
+.search .options {
+  font-size: 150%;
+  text-align: center;
+}
+
+.search .option {
+  margin-bottom: 15px;
+}
+
+.search .options button {
+  transition: background 300ms;
+  margin-right: 10px;
+}
+
+.search .options .pure-button-active {
+  background: #FF8D00;
 }
 
 .search form > .search-box {
@@ -35,13 +54,13 @@ input {
   text-align: center;
   display: block;
   margin: auto;
+  margin-bottom: 15px;
 }
 
 .search .go {
   display: none;
   margin: auto;
-  margin-top: 30px;
-  font-size: 190%;
+  font-size: 150%;
   background: orange;
 }
 
