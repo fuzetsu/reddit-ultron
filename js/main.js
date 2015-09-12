@@ -10,7 +10,8 @@
   };
 
   app.CONST = {
-    reddit: 'https://www.reddit.com'
+    reddit: 'https://www.reddit.com',
+    appName: 'Reddit Search'
   };
   
   var deps = {
@@ -25,7 +26,7 @@
   var layout = function(title, content, cArgs) {
     return {
       controller: function(args) {
-        document.title = (title ? 'RS - ' + title : 'Reddit Search');
+        document.title = (title ? 'RS - ' + title : app.CONST.appName);
       },
       view: function(ctrl, args) {
         return m('div.container', {

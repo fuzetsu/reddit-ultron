@@ -31,7 +31,7 @@ app.cmp.Start = {
   view: function(ctrl, args) {
     var isSearch = ctrl.type().toLowerCase() === 'search';
     return m('div.search', [
-      m('h1', 'Reddit Search'),
+      m('h1', app.CONST.appName),
       m('div.options', [
         m('div.option', [
           m('button.pure-button', {
