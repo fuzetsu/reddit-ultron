@@ -45,9 +45,9 @@ var mutil = {
     var t = e.target;
     if(!t.style.width) {
       t.style.width = t.clientWidth + 'px';
-      t.style.maxHeight = 'none';
+      t.style.maxWidth = 'none';
       Velocity(t, {
-        width: '*=1.7'
+        width: (t.clientWidth * 1.7 > window.innerWidth ? '100%' : '*=1.7')
       });
     } else {
       Velocity(t, 'reverse');

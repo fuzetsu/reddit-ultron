@@ -69,7 +69,7 @@ app.cmp.Results = {
     // register scroll handler
     window.addEventListener('scroll', ctrl.handleScroll);
     // determine is this is a multireddit
-    ctrl.isMultiReddit = (args.type === 'search' || ctrl.query.indexOf('+') !== -1);
+    ctrl.isMultiReddit = (args.type === 'search' || ctrl.query === 'all' || ctrl.query.indexOf('+') !== -1);
     // request the results
     app.model.Reddit[args.type](m.route.param('query'))
       .then(ctrl.posts)

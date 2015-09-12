@@ -10,7 +10,7 @@
   };
 
   app.const = {
-    REDDIT: 'https://www.reddit.com',
+    REDDIT_URL: 'https://www.reddit.com',
     APP_NAME: 'Reddit Ultron',
     APP_INITIALS: 'RU',
     LOAD_NUM: 3
