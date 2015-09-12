@@ -8,6 +8,10 @@
   app.IMAGES = {
     loading: 'img/loading.gif'
   };
+
+  app.CONST = {
+    reddit: 'https://www.reddit.com'
+  };
   
   var deps = {
     // EXTRA
