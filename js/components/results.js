@@ -34,9 +34,9 @@ app.cmp.Results = {
       genPostContent: function(post) {
         var content = [];
         if(/\.(jpg|png|gif)$/i.test(post.url)) {
-          content = m('img', {onclick: mutil.toggleExpand, src: post.url});
+          content = m('img.resize', {onclick: mutil.toggleExpand, src: post.url});
         } else if(/imgur\.com\/[a-z0-9]+$/i.test(post.url)) {
-          content = m('img', {onclick: mutil.toggleExpand, src: post.url + '.jpg'});
+          content = m('img.resize', {onclick: mutil.toggleExpand, src: post.url + '.jpg'});
         } else {
           if(/\.(jpg|png|gif)$/i.test(post.thumbnail)) {
             content.push(m('img', {src: post.thumbnail}));

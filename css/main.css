@@ -105,6 +105,10 @@ a {
   margin: auto;
 }
 
+.post-content .resize {
+  cursor: col-resize;
+}
+
 @media (min-width: 1000px) {
   .post-content img {
     max-width: 1000px;
