@@ -16,6 +16,16 @@ var util = {
     }
     return obj;
   },
+  titleCase: function(str) {
+    return str.replace(/([a-z]+)/gi, function(match) {
+      return match.charAt(0).toUpperCase() + match.slice(1);
+    });
+  },
+  htmlDecode: function(input) {
+    var e = document.createElement('div');
+    e.innerHTML = input;
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  },
 };
 
 /**
@@ -30,6 +40,18 @@ var mutil = {
   },
   icon: function(name, children) {
     return m('i.fa.fa-' + name, children);
+  },
+  toggleExpand: function(e) {
+    var t = e.target;
+    if(!t.style.width) {
+      t.style.width = t.clientWidth + 'px';
+      t.style.maxHeight = 'none';
+      Velocity(t, {
+        width: '*=1.5'
+      });
+    } else {
+      Velocity(t, 'reverse');
+    }
   },
 };
 
@@ -54,5 +76,5 @@ mutil.c = {
     if (!isInit) {
       Velocity(elem, {left: 0});
     }
-  }
+  },
 };
