@@ -47,7 +47,7 @@ var mutil = {
       t.style.width = t.clientWidth + 'px';
       t.style.maxHeight = 'none';
       Velocity(t, {
-        width: '*=1.5'
+        width: '*=1.7'
       });
     } else {
       Velocity(t, 'reverse');
