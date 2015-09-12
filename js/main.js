@@ -9,10 +9,11 @@
     loading: 'img/loading.gif'
   };
 
-  app.CONST = {
-    reddit: 'https://www.reddit.com',
-    appName: 'Reddit Ultron',
-    appInitials: 'RU'
+  app.const = {
+    REDDIT: 'https://www.reddit.com',
+    APP_NAME: 'Reddit Ultron',
+    APP_INITIALS: 'RU',
+    LOAD_NUM: 3
   };
   
   var deps = {
@@ -27,7 +28,7 @@
   var layout = function(title, content, cArgs) {
     return {
       controller: function(args) {
-        document.title = (title ? app.CONST.appInitials + ' - ' + title : app.CONST.appName);
+        document.title = (title ? app.const.APP_INITIALS + ' - ' + title : app.const.APP_NAME);
       },
       view: function(ctrl, args) {
         return m('div.container', {

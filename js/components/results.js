@@ -4,6 +4,7 @@ app.cmp.Results = {
       loading: m.prop(true),
       posts: m.prop([]),
       query: m.route.param('query'),
+      limit: m.prop(5),
       backToSearch: function() {
         m.route('/search');
       },
@@ -14,11 +15,11 @@ app.cmp.Results = {
             m('span.score', post.score),
             ' upvotes and ',
             m('a[target=_blank]', {
-              href: app.CONST.reddit + post.permalink
+              href: app.const.REDDIT_URL + post.permalink
             }, post.num_comments + ' comments'),
             ' posted by ',
             m('a[target=_blank]', {
-              href: app.CONST.reddit + '/user/' + post.author
+              href: app.const.REDDIT_URL + '/user/' + post.author
             }, '/u/' + post.author),
             ctrl.isMultiReddit ? ([
               ' to ',
@@ -53,8 +54,20 @@ app.cmp.Results = {
           display: 'block'
         });
         m.redraw();
+      },
+      handleScroll: function(e) {
+        var scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+        if(document.body.clientHeight - (window.innerHeight + scrollTop) < window.innerHeight) {
+          ctrl.limit(ctrl.limit() + app.const.LOAD_NUM);
+          m.redraw();
+        }
+      },
+      onunload: function() {
+        window.removeEventListener('scroll', ctrl.handleScroll);
       }
     };
+    // register scroll handler
+    window.addEventListener('scroll', ctrl.handleScroll);
     // determine is this is a multireddit
     ctrl.isMultiReddit = (args.type === 'search' || ctrl.query.indexOf('+') !== -1);
     // request the results
@@ -72,7 +85,7 @@ app.cmp.Results = {
         mutil.icon('arrow-left'),
         ' Search'
       ]),
-      m('div', ctrl.posts().map(function(post) {
+      m('div', ctrl.posts().slice(0, ctrl.limit()).map(function(post) {
         return m('div.post', [
           ctrl.genPostTitle(post),
           ctrl.genPostContent(post)
