@@ -3,7 +3,7 @@ app.model.Reddit = {
     var API_URL = 'https://www.reddit.com/';
     return m.request({
       method: 'GET',
-      url: API_URL + url + '.json?' + m.route.buildQueryString(params),
+      url: API_URL + url + '.json?limit=100&' + m.route.buildQueryString(params),
       background: true
     }).then(function(posts) {
       return posts.data.children.map(function(post) {
